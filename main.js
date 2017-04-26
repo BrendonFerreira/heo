@@ -2,7 +2,12 @@ class PeerClient {
   constructor(){
     
   }
-  requestConnection()
+  sendSignal(peerKey) {
+    
+  }
+  onSignal(signal) {
+  
+  }
   sendData(data) {
     
   }
@@ -10,9 +15,10 @@ class PeerClient {
 
 class User extends Peer {
   
-  constructor(){
+  constructor(user){
     super()
     this.authKey = null;
+    this.user = user
   }
   
   setAuthKey( authKey ){
@@ -20,11 +26,11 @@ class User extends Peer {
   }
   
   pairWithUser( peerKeyFromUser ) {
-    
+    return Users.pairUsers(this.user.auth, peerKeyFromUser)
   }
   
   testPeerKey( peerKey ) {
-    
+    this.super.sendSignal(peerKey)
   }
   
   connectToUser( userId ){
