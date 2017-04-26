@@ -1,4 +1,14 @@
-class User extends Connection {
+class PeerClient {
+  constructor(){
+    
+  }
+  requestConnection()
+  sendData(data) {
+    
+  }
+}
+
+class User extends Peer {
   
   constructor(){
     super()
@@ -9,9 +19,19 @@ class User extends Connection {
     this.authKey = authKey
   }
   
+  pairWithUser( peerKeyFromUser ) {
+    
+  }
+  
+  testPeerKey( peerKey ) {
+    
+  }
+  
   connectToUser( userId ){
-    return HoeBase.getUser(userId).then((result)=>{
-      
+    return Users.getUserById(userId).then(({peerKey})=>{
+      return new Promise((resolve, reject) => {
+        resolve(peerKey);
+      })
     })
   }  
   
